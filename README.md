@@ -4,26 +4,12 @@ This is a gem to helper you quick create a share feature in you Rails apps.
 
 # Sites list
 
-* Facebook
-* Twitter
-* Douban
-* Google+
 * Weibo
 * QZone
 * Tencent Weibo
-* Renren
-* Hi Baidu
-* Kaixin001
-* Google Bookmark
-* Delicious
-* Tumblr
-* Plurk
-* Pinterest
-* Email
-
+* QQ Friend
 ## Screenshot
 
-<img src="http://l.ruby-china.org/photo/85fa930a43d622ba9653eb0f86df207c.png" width="220px" />
 
 ## Install
 
@@ -46,7 +32,7 @@ You can config `config/initializes/social_share_button.rb` to choose which site 
 
 ```ruby
 SocialShareButton.configure do |config|
-  config.allow_sites = %w(twitter facebook google_plus weibo douban tqq renren qq kaixin001 baidu tumblr plurk pinterest email)
+  config.allow_sites = %w(weibo tqq qq qqzone)
 end
 ```
 
@@ -54,10 +40,10 @@ end
 
 You need add require css,js file in your app assets files:
 
-`app/assets/javascripts/application.coffee`
+`app/assets/javascripts/application.js`
 
 ```
-#= require social-share-button
+//= require social-share-button
 ```
 
 `app/assets/stylesheets/application.scss`
@@ -114,13 +100,9 @@ Here are the mapping of attributes depending on you data-type parameter
 | link (default)    | title     | data-title                 |
 |                   | url       | data-url                   |
 | text              | title     | data-title                 |
+| id                | id        | id                         |
 | photo             | title     | data-caption               |
 |                   | image     | data-source                |
 | quote             | title     | data-quote                 |
 |                   |           | data-source                |
 </pre>
-
-
-## Demo
-
-[http://ruby-china.org/wiki/about](http://ruby-china.org/wiki/about)
