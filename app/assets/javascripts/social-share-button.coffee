@@ -33,6 +33,8 @@ window.SocialShareButton =
       when "facebook"
         SocialShareButton.openUrl("http://www.facebook.com/sharer.php?u=#{url}",popup)
       when "qq"
+        SocialShareButton.openUrl("http://connect.qq.com/widget/shareqq/index.html?url=#{url}&title=#{title}&videos=#{videos}&desc=#{desc}&summary=#{desc}&site=#{appkey}", popup)
+      when "qqzone"
         SocialShareButton.openUrl("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=#{url}&title=#{title}&pics=#{img}&summary=#{desc}&site=#{appkey}", popup)
       when "tqq"
         SocialShareButton.openUrl("http://share.v.t.qq.com/index.php?c=share&a=index&url=#{url}&title=#{title}&pic=#{img}&appkey=#{appkey}", popup)
