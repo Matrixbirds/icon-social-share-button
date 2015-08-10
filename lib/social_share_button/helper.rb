@@ -5,7 +5,7 @@ module SocialShareButton
       extra_data = {}
       rel = opts[:rel]
       html = []
-      html << "<div class='social-share-button' data-title='#{h title}' data-img='#{opts[:image]}'"
+      html << "<div class='social-share-button' id='#{opts[:id]}' data-title='#{h title}' data-img='#{opts[:image]}'"
       html << "data-url='#{opts[:url]}' data-desc='#{opts[:desc]}' data-popup='#{opts[:popup]}' data-via='#{opts[:via]}'>"
 
       SocialShareButton.config.allow_sites.each do |name|
