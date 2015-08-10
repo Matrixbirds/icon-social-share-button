@@ -16,6 +16,7 @@ window.SocialShareButton =
     via = encodeURIComponent($parent.data("via") || '')
     desc = encodeURIComponent($parent.data("desc") || ' ')
     popup = encodeURIComponent($parent.data("popup") || 'false')
+    videos = encodeURIComponent($parent.data("videos") || '')
 
     if url.length == 0
       url = encodeURIComponent(location.href)
