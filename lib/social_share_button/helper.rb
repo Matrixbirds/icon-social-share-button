@@ -18,8 +18,7 @@ module SocialShareButton
                                   "data-site" => name,
                                   :class => "generial-iconfont icon-social-share-button-#{name}",
                                   :onclick => "return SocialShareButton.share(this);",
-                                  :title => h(link_title),
-                                  "data-cb" => opts[:cb]}.merge(extra_data).merge(special_data))
+                                  :title => h(link_title)}.merge(extra_data).merge(special_data))
       end
       html << "</div>"
       raw html.join("\n")
