@@ -34,7 +34,7 @@ module SocialShareButton
 
    def wechat_image_tag(opts = {})
      default_img_options = {
-       :class => {'default-wechat-share-style'}
+       :class => 'default-wechat-share-style',
        :size => 250,
        :url => 'bao.tv'
      }
