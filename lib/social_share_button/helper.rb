@@ -36,7 +36,7 @@ module SocialShareButton
      default_img_options = {
        :class => 'default-wechat-share-style',
        :size => 250,
-       :url => 'bao.tv'
+       :url => 'https://github.com/Matrixbirds/social-share-button'
      }
      options = default_img_options.merge(opts) # reverse_merge
      image_tag generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url
