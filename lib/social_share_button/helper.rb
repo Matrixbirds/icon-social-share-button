@@ -26,22 +26,23 @@ module SocialShareButton
 
     def generate_qr_code(url)
       if url
-        RQRCode::QRCode.new(url, :size => 4, :level => :h ).as_png(:size => 250)
+        RQRCode::QRCode.new(url, :size => 4, :level => :h)
       else
         raise "url must not be nil"
-    end
-
-    def wechat_image_tag(opts = {})
-      default_img_options = {
-        :class => 'default-wechat-share-style qr-code-hide',
-        :size => 250,
-        :url => 'bao.tv'
-      }
-      options = default_img_options.merge(opts) # reverse_merge
-      content_tag (:div, :class => options.class) do
-        concat(content_tag(:img, generate_qr_code(options.url).as_png(:size => options.size)))
       end
     end
+
+   def wechat_image_tag(opts = {})
+     default_img_options = {
+       :class => 'default-wechat-share-style qr-code-hide',
+       :size => 250,
+       :url => 'bao.tv'
+     }
+     options = default_img_options.merge(opts) # reverse_merge
+     content_tag(:div, :class => options[:class]) do
+       concat(image_tag(generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url))
+     end
+   end
 
   end
 end
