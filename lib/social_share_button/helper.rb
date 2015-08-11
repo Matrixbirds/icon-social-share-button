@@ -27,7 +27,8 @@ module SocialShareButton
     def generate_qr_code(url)
       if url
         RQRCode::QRCode.new(url, :size => 4, :level => :h ).as_png(:size => 250)
-      raise "url must not be nil"
+      else
+        raise "url must not be nil"
     end
 
     def wechat_image_tag(opts = {})
@@ -37,8 +38,8 @@ module SocialShareButton
         :url => 'bao.tv'
       }
       options = default_img_options.merge(opts) # reverse_merge
-      content_tag (:div) do
-        concat(content_tag(:img, generate_qr_code(options[:url]).as_png(:size => options[:size])))
+      content_tag (:div, :class => options.class) do
+        concat(content_tag(:img, generate_qr_code(options.url).as_png(:size => options.size)))
       end
     end
 
