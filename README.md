@@ -44,66 +44,105 @@ You need add require css,js file in your app assets files:
 `app/assets/javascripts/application.js`
 
 ```
-//= require social-share-button
+//= require icon-social-share-button
 ```
 
-`app/assets/stylesheets/application.scss`
+```sh
+mkdir /to/your_app_project_path/app/assets/fonts
+cp fonts/* /to/your_app_project_path/app/assets/fonts
+```
+
+`app/assets/stylesheets/application.css.scss`
+
+```scss
+/* You can extend css base on the below code */
+@font-face {font-family: "generial-iconfont";
+   src: font-url('iconfont.eot'); /* IE9*/
+   src: font-url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+   font-url('iconfont.woff') format('woff'), /* chrome、firefox */
+   font-url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+   font-url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+ }
+
+ .generial-iconfont {
+   font-family:"generial-iconfont" !important;
+   font-size:18px;
+   font-style:normal;
+   line-height:15px;
+   -webkit-font-smoothing: antialiased;
+   -webkit-text-stroke-width: 0.2px;
+   -moz-osx-font-smoothing: grayscale;
+ }
+
+ .social-share-button {
+     position: relative;
+     left: 50px;
+     top: 5px;
+ }
+
+ .social-share-button a {
+   margin: auto 10px;
+ }
+
+ .icon-social-share-button-qqzone:before {
+     content: "\e605";
+     background-color: #E9AC40;
+     border-radius: 5px;
+     font-size: 38px;
+     display: inline-block;
+     padding: 2px;
+     color: #FFF;
+     text-decoration: blink;
+     line-height: 38px;
+ }
+
+ .icon-social-share-button-tqq:before {
+     content: "\e607";
+     background-color: #40B6CA;
+     border-radius: 5px;
+     font-size: 38px;
+     display: inline-block;
+     padding: 2px;
+     color: #FFF;
+     text-decoration: blink;
+     line-height: 38px;
+ }
+
+ .icon-social-share-button-qq:before {
+     content: "\e601";
+     background-color: #338edd;
+     border-radius: 5px;
+     font-size: 38px;
+     display: inline-block;
+     padding: 2px;
+     color: #FFF;
+     text-decoration: blink;
+     line-height: 38px;
+ }
+
+ .icon-social-share-button-weibo:before {
+     content: "\e603";
+     background-color: #BE3724;
+     border-radius: 5px;
+     font-size: 38px;
+     display: inline-block;
+     padding: 2px;
+     color: #FFF;
+     text-decoration: blink;
+     line-height: 38px;
+ }
 
 ```
-*= require social-share-button
-```
 
-Then you can use `social_share_button_tag` helper in views, for example `app/views/posts/show.html.erb`
+Then you can use `icon_social_share_button_tag` helper in views, for example `app/views/posts/show.html.erb`
 
+Generate icon_social_share_button on views
 ```erb
-<%= social_share_button_tag(@post.title) %>
+<%= icon_social_share_button_tag '23333', :url => request.original_url, :desc => '😄哈哈哈哈哈哈哈' %>
 ```
 
-Apart from the default title, you can specify the title for the special social network:
-
+Generate Qr_code on views
+Default url is this repository
 ```erb
-<%= social_share_button_tag(@post.title, 'data-twitter-title' => 'TheTitleForTwitter') %>
+<%= wechat_image_tag  %>
 ```
-
-For Popup window use this custom popup attribute:
-
-```erb
-<%= social_share_button_tag(@post.title, :popup => "true")
-```
-
-And you can custom rel attribute:
-
-```erb
-<%= social_share_button_tag(@post.title, :rel => "twipsy") %>
-```
-
-You can also specify the URL that it links to:
-
-```erb
-<%= social_share_button_tag(@post.title, :url => "http://myapp.com/foo/bar") %>
-```
-
-```erb
-<%= social_share_button_tag(@post.title, :url => "http://myapp.com/foo/bar", :image => "http://foo.bar/images/a.jpg", desc: "The summary of page", via: "MyTwitterName") %>
-```
-
-For the Tumblr there are an extra settings, prefixed with :'data-*'
-```erb
-<%= social_share_button_tag(@post.title, :image => "https://raw.github.com/vkulpa/social-share-button/master/lib/assets/images/sprites/social-share-button/tumblr.png", :'data-type' => 'photo') %>
-<%= social_share_button_tag(@post.title, :'data-source' => "https://raw.github.com/vkulpa/social-share-button/master/lib/assets/images/sprites/social-share-button/tumblr.png", :'data-type' => 'photo') %>
-```
-Those two above calls are identical.
-Here are the mapping of attributes depending on you data-type parameter
-
-<pre>
-| data-type         | standard  | custom :"data-*" prefixed  |
---------------------------------------------------------------
-| link (default)    | title     | data-title                 |
-|                   | url       | data-url                   |
-| text              | title     | data-title                 |
-| id                | id        | id                         |
-| photo             | title     | data-caption               |
-|                   | image     | data-source                |
-| quote             | title     | data-quote                 |
-|                   |           | data-source                |
-</pre>
