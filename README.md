@@ -1,22 +1,23 @@
 # Social Share Button
 
-This is a gem to helper you quick create a share feature in you Rails apps.
+This gem is forks from [social-share-button]()
+It used to share url to chinese social apps
 
-# Sites list
+# Support Apps list
 
 * Weibo
 * QZone
 * Tencent Weibo
 * QQ Friend
+* Wechat(weixin)
 ## Screenshot
-
 
 ## Install
 
 In your `Gemfile`:
 
 ```ruby
-gem 'social-share-button'
+gem 'icon-social-share-button'
 ```
 
 And install it:
@@ -32,7 +33,7 @@ You can config `config/initializes/social_share_button.rb` to choose which site 
 
 ```ruby
 SocialShareButton.configure do |config|
-  config.allow_sites = %w(weibo tqq qq qqzone)
+  config.allow_sites = %w(weibo tqq qq qqzone wechat)
 end
 ```
 
