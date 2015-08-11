@@ -7,7 +7,7 @@ window.SocialShareButton =
       false
 
   troggleCallback : (cb) ->
-    if cb && typeof cb === "function"
+    if cb && typeof cb == "function"
       cb()
     else
       throw 'cb is not function or is undefined'
