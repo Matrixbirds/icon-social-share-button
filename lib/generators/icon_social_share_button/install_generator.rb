@@ -1,7 +1,7 @@
-module SocialShareButton
+module IconSocialShareButton
   module Generators
     class InstallGenerator < ::Rails::Generators::Base
-      desc "Copy SocialShareButton default files"
+      desc "Copy IconSocialShareButton default files"
       source_root File.expand_path('../templates', __FILE__)
 
       def copy_config

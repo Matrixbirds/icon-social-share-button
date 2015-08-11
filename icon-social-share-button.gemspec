@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "social_share_button/version"
+require "icon_social_share_button/version"
 
 Gem::Specification.new do |s|
   s.name        = "icon-social-share-button"
-  s.version     = SocialShareButton::VERSION
+  s.version     = IconSocialShareButton::VERSION
   s.authors     = ["Matrixbirds"]
   s.email       = ["yooobuntu@gmail.com"]
-  s.homepage    = "https://github.com/Matrixbirds/social-share-button"
+  s.homepage    = "https://github.com/Matrixbirds/icon-social-share-button"
   s.summary     = %q{Helper for add social share feature in your Rails app. Weibo, QQ ...}
   s.description = %q{Helper for add social share feature in your Rails app. Weibo, QQ ...}
   s.license     = 'MIT'

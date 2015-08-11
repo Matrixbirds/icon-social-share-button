@@ -24,15 +24,15 @@ And install it:
 
 ```bash
 $ bundle install
-$ rails generate social_share_button:install
+$ rails generate icon_social_share_button:install
 ```
 
 ## Configure
 
-You can config `config/initializes/social_share_button.rb` to choose which site do you want to use:
+You can config `config/initializes/icon_social_share_button.rb` to choose which site do you want to use:
 
 ```ruby
-SocialShareButton.configure do |config|
+IconSocialShareButton.configure do |config|
   config.allow_sites = %w(weibo tqq qq qqzone wechat)
 end
 ```
