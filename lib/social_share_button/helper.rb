@@ -1,4 +1,5 @@
 # coding: utf-8
+require 'rqrcode'
 module SocialShareButton
   module Helper
     def social_share_button_tag(title = "", opts = {})
@@ -22,5 +23,24 @@ module SocialShareButton
       html << "</div>"
       raw html.join("\n")
     end
+
+    def generate_qr_code(url)
+      if url
+        RQRCode::QRCode.new(url, :size => 4, :level => :h ).as_png(:size => 250)
+      raise "url must not be nil"
+    end
+
+    def wechat_image_tag(opts = {})
+      default_img_options = {
+        :class => 'default-wechat-share-style qr-code-hide',
+        :width => 250,
+        :url => generate_qr_code('bao.tv').as_png(:size => :width)
+      }
+      options = default_img_options.merge(opts) # reverse_merge
+      content_tag (:div, :class => options.class) do
+        concat(content_tag(:img, options.url))
+      end
+    end
+
   end
 end
