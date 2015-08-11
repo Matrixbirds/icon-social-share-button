@@ -33,12 +33,12 @@ module SocialShareButton
     def wechat_image_tag(opts = {})
       default_img_options = {
         :class => 'default-wechat-share-style qr-code-hide',
-        :width => 250,
-        :url => generate_qr_code('bao.tv').as_png(:size => :width)
+        :size => 250,
+        :url => 'bao.tv'
       }
       options = default_img_options.merge(opts) # reverse_merge
       content_tag (:div, :class => options.class) do
-        concat(content_tag(:img, options.url))
+        concat(content_tag(:img, generate_qr_code(options.url).as_png(:size => options.size)))
       end
     end
 
