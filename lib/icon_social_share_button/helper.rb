@@ -1,5 +1,6 @@
 # coding: utf-8
 require 'rqrcode'
+require 'shorturl'
 module IconSocialShareButton
   module Helper
     def icon_social_share_button_tag(title = "", opts = {})
@@ -24,23 +25,32 @@ module IconSocialShareButton
       raw html.join("\n")
     end
 
-    def generate_qr_code(url)
-      if url
-        RQRCode::QRCode.new(url, :size => 4, :level => :h)
-      else
-        raise "url must not be nil"
-      end
+    def wechat_image_tag(opts = {})
+      default_img_options = {
+        :class => 'default-wechat-share-style',
+        :size => 250,
+        :url => 'http://t.cn/RLu4RKd'
+      }
+      options = default_img_options.merge(opts) # reverse_merge
+      image_tag generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url
     end
 
-   def wechat_image_tag(opts = {})
-     default_img_options = {
-       :class => 'default-wechat-share-style',
-       :size => 250,
-       :url => 'https://github.com/Matrixbirds/icon-social-share-button'
-     }
-     options = default_img_options.merge(opts) # reverse_merge
-     image_tag generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url
-   end
+    private
 
+      def short_url(url)
+        if url
+
+        else
+          raise "url must not be nil"
+        end
+      end
+
+      def generate_qr_code(url)
+        if url
+          RQRCode::QRCode.new(short_url(url), :size => 4, :level => :h)
+        else
+          raise "url must not be nil"
+        end
+      end
   end
 end
