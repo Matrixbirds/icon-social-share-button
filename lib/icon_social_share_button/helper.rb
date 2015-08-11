@@ -1,6 +1,5 @@
 # coding: utf-8
 require 'rqrcode'
-require 'shorturl'
 module IconSocialShareButton
   module Helper
     def icon_social_share_button_tag(title = "", opts = {})
@@ -47,7 +46,7 @@ module IconSocialShareButton
 
       def generate_qr_code(url)
         if url
-          RQRCode::QRCode.new(short_url(url), :size => 4, :level => :h)
+          RQRCode::QRCode.new(url, :size => 4, :level => :h)
         else
           raise "url must not be nil"
         end
