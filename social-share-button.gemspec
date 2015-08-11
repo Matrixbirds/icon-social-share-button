@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = SocialShareButton::VERSION
   s.authors     = ["Matrixbirds"]
   s.email       = ["yooobuntu@gmail.com"]
-  s.homepage    = "http://github.com/Matrixbirds/social-share-button"
+  s.homepage    = "https://github.com/Matrixbirds/social-share-button"
   s.summary     = %q{Helper for add social share feature in your Rails app. Weibo, QQ ...}
   s.description = %q{Helper for add social share feature in your Rails app. Weibo, QQ ...}
   s.license     = 'MIT'
