@@ -6,6 +6,12 @@ window.SocialShareButton =
       window.open(url)
       false
 
+  troggleCallback : (cb) ->
+    if cb && typeof cb === "function"
+      cb()
+    else
+      throw 'cb is not function or is undefined'
+
   share : (el) ->
     site = $(el).data('site')
     appkey = $(el).data('appkey') || ''
@@ -17,6 +23,7 @@ window.SocialShareButton =
     desc = encodeURIComponent($parent.data("desc") || ' ')
     popup = encodeURIComponent($parent.data("popup") || 'false')
     videos = encodeURIComponent($parent.data("videos") || '')
+    fn = $(el).data('fn') || ''
 
     if url.length == 0
       url = encodeURIComponent(location.href)
@@ -33,6 +40,8 @@ window.SocialShareButton =
         SocialShareButton.openUrl("http://shuo.douban.com/!service/share?href=#{url}&name=#{title}&image=#{img}&sel=#{desc}",popup)
       when "facebook"
         SocialShareButton.openUrl("http://www.facebook.com/sharer.php?u=#{url}",popup)
+      when "wechat"
+        SocialShareButton.troggleCallback(fn)
       when "qq"
         SocialShareButton.openUrl("http://connect.qq.com/widget/shareqq/index.html?url=#{url}&title=#{title}&videos=#{videos}&desc=#{desc}&summary=#{desc}&site=#{appkey}", popup)
       when "qqzone"
