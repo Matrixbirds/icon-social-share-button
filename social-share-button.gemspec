@@ -24,5 +24,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rails"
   s.add_runtime_dependency "coffee-rails"
   s.add_runtime_dependency "sass-rails"
+  s.add_runtime_dependency "rqrcode"
   # s.add_runtime_dependency "rest-client"
 end
