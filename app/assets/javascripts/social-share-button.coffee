@@ -7,10 +7,10 @@ window.SocialShareButton =
       false
 
   troggleCallback : (cb) ->
-    if cb && typeof cb == "function"
-      cb()
+    if cb
+      new Function(cb)();
     else
-      throw 'cb is not function or is undefined'
+      throw 'cb is undefined'
 
   share : (el) ->
     site = $(el).data('site')
@@ -23,7 +23,7 @@ window.SocialShareButton =
     desc = encodeURIComponent($parent.data("desc") || ' ')
     popup = encodeURIComponent($parent.data("popup") || 'false')
     videos = encodeURIComponent($parent.data("videos") || '')
-    fn = $(el).data('fn') || ''
+    cb = $(el).data('cb') || ''
 
     if url.length == 0
       url = encodeURIComponent(location.href)
@@ -41,7 +41,7 @@ window.SocialShareButton =
       when "facebook"
         SocialShareButton.openUrl("http://www.facebook.com/sharer.php?u=#{url}",popup)
       when "wechat"
-        SocialShareButton.troggleCallback(fn)
+        SocialShareButton.troggleCallback(cb)
       when "qq"
         SocialShareButton.openUrl("http://connect.qq.com/widget/shareqq/index.html?url=#{url}&title=#{title}&videos=#{videos}&desc=#{desc}&summary=#{desc}&site=#{appkey}", popup)
       when "qqzone"
