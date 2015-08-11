@@ -39,7 +39,7 @@ module SocialShareButton
        :url => 'bao.tv'
      }
      options = default_img_options.merge(opts) # reverse_merge
-     image_tag(generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url))
+     image_tag generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url
    end
 
   end
