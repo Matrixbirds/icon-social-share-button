@@ -29,7 +29,9 @@ module IconSocialShareButton
         :class => 'default-wechat-share-style',
         :size => 250,
         :url => 'http://t.cn/RLu4RKd',
-        :qr_size => 40
+        :qr_size => 40,
+        :border_modules => 2.3,
+        :module_px_size => 2
       }
       options = default_img_options.merge(opts) # reverse_merge
       # image_tag generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url, :class => options[:class]
@@ -39,8 +41,8 @@ module IconSocialShareButton
           fill: 'white',
           color: 'black',
           size: options[:size],
-          border_modules: 2.3,
-          module_px_size: 2,
+          border_modules: options[:border_modules],
+          module_px_size: options[:module_px_size], 
           file: nil # path to write
           ).to_data_url, :class => options[:class], :size => options[:size]
     end
