@@ -31,7 +31,7 @@ module IconSocialShareButton
         :url => 'http://t.cn/RLu4RKd',
         :qr_size => 40,
         :border_modules => 2.3,
-        :module_px_size => 2
+        :module_px_size => 2,
         :fill => 'white',
         :color => 'black'
       }
