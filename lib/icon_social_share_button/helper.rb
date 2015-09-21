@@ -32,17 +32,19 @@ module IconSocialShareButton
         :qr_size => 40,
         :border_modules => 2.3,
         :module_px_size => 2
+        :fill => 'white',
+        :color => 'black'
       }
       options = default_img_options.merge(opts) # reverse_merge
       # image_tag generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url, :class => options[:class]
       image_tag generate_qr_code(options).as_png(
           resize_gte_to: true,
           resize_exactly_to: true,
-          fill: 'white',
-          color: 'black',
+          fill: options[:fill],
+          color: options[:color],
           size: options[:size],
           border_modules: options[:border_modules],
-          module_px_size: options[:module_px_size], 
+          module_px_size: options[:module_px_size],
           file: nil # path to write
           ).to_data_url, :class => options[:class], :size => options[:size]
     end
