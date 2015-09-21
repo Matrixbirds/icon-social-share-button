@@ -27,8 +27,9 @@ module IconSocialShareButton
     def wechat_image_tag(opts = {})
       default_img_options = {
         :class => 'default-wechat-share-style',
-        :size => 40,
-        :url => 'http://t.cn/RLu4RKd'
+        :size => 250,
+        :url => 'http://t.cn/RLu4RKd',
+        :qr_size => 40
       }
       options = default_img_options.merge(opts) # reverse_merge
       # image_tag generate_qr_code(options[:url]).as_png(:size => options[:size]).to_data_url, :class => options[:class]
@@ -56,7 +57,7 @@ module IconSocialShareButton
 
       def generate_qr_code(opts)
         if opts[:url]
-          RQRCode::QRCode.new(opts[:url], :size => opts[:size], :level => :h)
+          RQRCode::QRCode.new(opts[:url], :size => opts[:qr_size], :level => :h)
         else
           raise "url must not be nil"
         end
