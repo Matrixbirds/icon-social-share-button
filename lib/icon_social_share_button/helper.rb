@@ -45,6 +45,7 @@ module IconSocialShareButton
           size: options[:size],
           border_modules: options[:border_modules],
           module_px_size: options[:module_px_size],
+          qr_size: options[:qr_size],
           file: nil # path to write
           ).to_data_url, :class => options[:class], :size => options[:size]
     end
